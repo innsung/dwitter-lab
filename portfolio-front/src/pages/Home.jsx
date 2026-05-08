@@ -8,7 +8,6 @@ import { getFetchData } from "../util/fetch.js"
 export default function Home() {  
     const likeCount = useSelector((state) => state.like.count);
     const projectList = useSelector((state) => state.like.list);
-    // const { data } = useOutletContext(); //content 객체 전체
     const [data, setData] = useState({});
     useEffect(() => {
         const fetchData = async() => {
