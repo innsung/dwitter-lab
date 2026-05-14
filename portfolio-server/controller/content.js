@@ -19,7 +19,7 @@ export const getAbout = async(req, res, next)=>{
 /**
  * 
  */
-export const getSkills =  async(req, res, next)=>{
+export const getSkills = async (req, res, next)=>{
     const skills = await repository.getSkills();
     res.json({"result": skills});
 }
@@ -28,7 +28,7 @@ export const getSkills =  async(req, res, next)=>{
 /**
  * 
  */
-export const getWork = async (req, res, next)=>{ 
+export const getWork = async(req, res, next)=>{ 
     const work = await repository.getWork();
     res.json({"result": work});
 }

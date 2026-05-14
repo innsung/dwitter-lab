@@ -21,7 +21,7 @@ const RULES = {
 };
 
 function validate(form) {
-  const errors = {};
+  const errors = {};  
   for (const [field, rules] of Object.entries(RULES)) {
     for (const { test, msg } of rules) {
       if (!test(form[field])) { errors[field] = msg; break; }
@@ -50,6 +50,7 @@ export default function Login() {
       return next;
     });
   };
+
   // input 폼에 name field가 존재하는 경우!!
   // const handleChange = (e) => {
   //   const {name, value} = e.target;
@@ -80,7 +81,7 @@ export default function Login() {
     try {
       // ✅ 2단계: 실제 서버 로그인 API 호출
       const data = await authAPI.login(form);
-      login(data.user, data.token);
+      login(data.user, data.token);  //localStorage에 token, user정보 저장
       navigate("/");
     } catch (e) {
       // 서버에서 반환한 에러 메시지 표시 (예: "아이디 또는 비밀번호가 틀렸습니다.")
@@ -109,9 +110,9 @@ export default function Login() {
             placeholder="아이디"
             // name="username"
             value={form.username}
-            onChange={handleChange("username")}
+            onChange={handleChange("username")} 
             onBlur={handleBlur("username")}
-            onKeyDown={onKey}
+            // onKeyDown={onKey}
           />
           {fieldErrors.username && (
             <span className={styles.fieldError}>{fieldErrors.username}</span>
@@ -134,7 +135,9 @@ export default function Login() {
           )}
         </div>
 
-        <button className={styles.btn} onClick={handleSubmit} disabled={loading}>
+        <button className={styles.btn} 
+                onClick={handleSubmit} 
+                disabled={loading}>
           {loading ? "로그인 중…" : "로그인"}
         </button>
 

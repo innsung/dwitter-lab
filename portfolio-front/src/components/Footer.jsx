@@ -5,17 +5,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export default function Footer() {
-    const [data, setData] = useState({});
-    useEffect(() => {
+    const [data, setData] = useState({}); 
+    useEffect(()=>{
         const fetchData = async() => {
             const jsonData = await getFetchData("/footer");
             setData(jsonData.result);
-        }   
+        }
         fetchData();
     }, []);
-    console.log(data);
     
-
     return (
         <footer id="contact" className="footer">
             <Title title="Let's Talk" />

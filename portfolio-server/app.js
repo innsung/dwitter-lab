@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
-import headerRouter from './routes/header.js'
-import contentRouter from './routes/content.js'
-import footerRouter from './routes/footer.js'
+import headerRouter from './routes/header.js';
+import contentRouter from './routes/content.js';
+import footerRouter from './routes/footer.js';
 
 const PORT = 9000;
 const app = express();
@@ -16,16 +16,6 @@ app.use('/content', contentRouter);
 app.use('/footer', footerRouter);
 
 
-app.listen(PORT, () => {
-    console.log(`서버 실행---->>`, PORT);
-    
-})
-
-
-
-
-
-
-
-
-
+app.listen(PORT, ()=> {
+    console.log(`서버 실행 ---->> `, PORT);
+});

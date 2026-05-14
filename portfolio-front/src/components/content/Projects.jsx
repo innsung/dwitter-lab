@@ -3,18 +3,15 @@ import { getFetchData } from '../../util/fetch.js';
 import AvatarImage from '../commons/AvatarImage.jsx';
 import Modal from './Modal.jsx';
 
-
 export default function Projects({ projects }) {
     const [selectedProject, setSelectedProject] = useState(null);
     const handleClose = () => {
         setSelectedProject(null);
     }
 
-    const handleProjectDetail = async (pid) => {
-        // console.log(pid);   //http://localhost:9000/content/work/project/:pid
-        const jsonData = await getFetchData(`/content/work/project/${pid}`);
+    const handleProjectDetail = async(pid) => {
+        const jsonData = await getFetchData(`/content/work/project/${pid}`);   
         setSelectedProject(jsonData.result);
-        
     }
 
     return (

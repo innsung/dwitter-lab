@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react';
 import AvatarImage from "../components/commons/AvatarImage.jsx"
 import Menu from "../components/commons/Menu.jsx"
 import { useOutletContext } from "react-router-dom"
-import { useSelector } from 'react-redux'
-import { getFetchData } from "../util/fetch.js"
+import { useSelector } from 'react-redux';
+import { getFetchData } from "../util/fetch.js";
 
 export default function Home() {  
     const likeCount = useSelector((state) => state.like.count);
     const projectList = useSelector((state) => state.like.list);
+
     const [data, setData] = useState({});
-    useEffect(() => {
+    useEffect(()=>{
         const fetchData = async() => {
             const jsonData = await getFetchData("/content/home");
             setData(jsonData.result);
         }
         fetchData();
     }, []);
-
-
     const { img, alt, title, name, description, href, menuName } = data;
+    
     return (
         <section id="home">
             <AvatarImage img={img}

@@ -1,5 +1,5 @@
-import express, { response } from 'express';
-import * as controller from '../controller/content.js'
+import express from 'express';
+import * as controller from '../controller/content.js';
 
 const router = express.Router();
 

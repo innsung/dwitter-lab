@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import Logo from "./header/Logo.jsx";
 import ToggleButton from "./header/ToggleButton.jsx";
 import MenuList from "./commons/MenuList.jsx";
@@ -6,7 +6,8 @@ import { getFetchData } from "../util/fetch.js";
 
 export default function Header() {
     const [data, setData] = useState({});
-    const [menus, setMenus] = useState([])
+    const [menus, setMenus] = useState([]);
+    
     useEffect(() => {
         const fetchData = async() => {
             const jsonData = await getFetchData("/header");
@@ -15,8 +16,6 @@ export default function Header() {
         }
         fetchData();
     }, []);
-
-
 
     return (
         <header className="header">

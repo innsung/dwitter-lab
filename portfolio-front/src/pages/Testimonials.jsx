@@ -1,18 +1,17 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getFetchData } from '../util/fetch.js';
-import React from 'react';
 import { Title, SubTitle } from '../components/commons/Titles.jsx';
 import Testimonial from '../components/content/Testimonial.jsx';
 
-export default function Testimonials() {   
-    const [testimonials, setTestimonials] = useState([]);
-    useEffect(() => {
+export default function Testimonials() {    
+    const [testimonials, setTestinomials] = useState([]);
+    useEffect(()=> {
         const fetchData = async() => {
-            const jsonData = await getFetchData("/content/testimonials")
-            setTestimonials(jsonData.result);
+            const jsonData = await getFetchData("/content/testimonials");
+            setTestinomials(jsonData.result);
         }
         fetchData();
-    }, [])
+    }, []);
 
     return (
         <section id="testimonial" className="section container">

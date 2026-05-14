@@ -7,7 +7,7 @@ import { Outlet } from 'react-router-dom';
 export default function App() {
   const [like, setLike] = useState(0);
   const [data, setData] = useState({});  
-  
+
   return (
     <>
       <Header />
