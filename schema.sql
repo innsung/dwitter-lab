@@ -72,7 +72,30 @@ select count(*) from tweets;
 select * from tweets_view
 	order by created_at desc;
     
-
+select  `t`.`id` AS `id`,
+		`t`.`content` AS `content`,
+        `t`.`created_at` AS `created_at`,
+        `u`.`id` AS `user_id`,
+        `u`.`username` AS `username`,
+        `u`.`avatar_url` AS `avatar_url` from (`dwitter`.`tweets` `t` join `dwitter`.`users` `u` on((`t`.`user_id` = `u`.`id`)));
+        
+-- 
+select * from users;
+desc users;        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
 
 

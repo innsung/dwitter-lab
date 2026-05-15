@@ -44,12 +44,12 @@ export const getLogin = async (req, res) => {
  * 회원가입
  */
 export const getAuth = async (req, res) => {
-  const SECRET = process.env.JWT_SECRET; // .env에서 불러오기
+  const SECRET = process.env.JWT_SECRET; // .env에서 불러오기, 토큰 생성
   const { userName, password, profileImage } = req.body;
 
   try {
     //패스워드 암호화
-    const hashed = await bcrypt.hash(req.body.password, 10);
+    const hashed = await bcrypt.hash(password, 10);
       const result = await repository.signUp({
       userName,
       password: hashed,
